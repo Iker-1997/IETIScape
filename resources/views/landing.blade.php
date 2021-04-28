@@ -36,7 +36,7 @@
                     <p class="text-center">¡Bienvenid@s a IETI Escape Room!</p>
                     <p class="text-center">Este juego virtual nace de la motivación de dos alumnos del CFGS de Desarrollo de Aplicaciones Web, del instituto Esteve Terradas i Illa, a la hora de realizar su proyecto de final de curso.</p>
                     <br>
-                    <p class="font-semibold text-xl text-center">Duración aproximada: 60 minutos</p>
+                    <p class="font-semibold text-xl text-center">Duración: 60 minutos</p>
                     <p class="font-semibold text-xl text-center">Dificultad: DIFÍCIL</p>
                     <p class="font-semibold text-xl text-center">Nº de Jugadores: 2</p>
                     <br>
