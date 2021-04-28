@@ -54,17 +54,17 @@
                 </div>
                 <div class="pt-10 space-y-4 grid justify-items-center">
                     <div class="justify-items-center space-y-4 ">
-                        <x-label class="block pb-1">Nombre de equipo:</x-label>
-                        <x-input class="block border-2" placeholder="Introducir nombre">
+                        <x-label class="block pb-1 text-shadow">Nombre de equipo:</x-label>
+                        <x-input class="block border-2 shadow" placeholder="Introducir nombre">
                         </x-input>
-                        <x-label class="block pb-1">Invitación:</x-label>
-                        <x-input class="block border-2" placeholder="Enlace">
+                        <x-label class="block pb-1 text-shadow">Invitación:</x-label>
+                        <x-input class="block border-2 shadow" placeholder="Enlace">
                         </x-input>
-                        <x-button class="block p-2">Generar enlace
+                        <x-button class="block p-2 shadow-md">Generar enlace
                         </x-button>
                     </div>
                     <div>
-                        <x-button class="block px-16 p-5 bg-red-700 hover:bg-red-600">¡EMPEZAR!
+                        <x-button class="block px-16 p-5 bg-red-700 hover:bg-red-600 shadow-md">¡EMPEZAR!
                         </x-button>
                     </div>
                 </div>

@@ -13,11 +13,12 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-mono antialiased">
+    <body class="font-mono antialiased text-shadow">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
