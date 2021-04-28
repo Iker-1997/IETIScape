@@ -31,7 +31,7 @@
 
     <div class="p-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
+            <div class="grid grid-cols-2 bg-white overflow-hidden shadow-sm sm:rounded-lg p-5 shadow">
                 <div class="p-10">
                     <p class="text-center">¡Bienvenid@s a IETI Escape Room!</p>
                     <p class="text-center">Este juego virtual nace de la motivación de dos alumnos del CFGS de Desarrollo de Aplicaciones Web, del instituto Esteve Terradas i Illa, a la hora de realizar su proyecto de final de curso.</p>
