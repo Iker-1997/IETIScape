@@ -48,22 +48,20 @@
                                 <th class="px-4" scope="col">TIEMPO</th>
                             </tr>
                         </thead>
+                        <?php
+                            $count = 1;
+                        ?>
                         <tbody class="divide-y">
+                            @foreach ($data as $user)
                             <tr>
-                                <th class="p-3" scope="row">1</th>
-                                <td class="">Intro to CSS</td>
-                                <td>Adam</td>
+                                <th class="p-3" scope="row">{{ $count }}</th>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->time }}</td>
                             </tr>
-                            <tr>
-                                <th class="p-2" scope="row">2</th>
-                                <td class="">Adam</td>
-                                <td>112</td>
-                            </tr>
-                            <tr>
-                                <th class="p-2" scope="row">3</th>
-                                <td class="">Intro to JavaScript</td>
-                                <td>Chris</td>
-                            </tr>
+                            <?php
+                                $count ++;
+                            ?>
+                            @endforeach
                         </tbody>
                     </table>     
                         
