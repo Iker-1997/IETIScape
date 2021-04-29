@@ -20,7 +20,7 @@
                         {{ __('Inicio') }}
                     </x-nav-link>
                     <x-nav-link href="/ranking">
-                        {{ __('Ranking') }}
+                        {{ __('Ránquing') }}
                     </x-nav-link>
                 </div>
             </div>
