@@ -24,3 +24,7 @@ Route::get('/ranking', function () {
     $num = $data->count();
     return view('ranking', ['data'=> $data, 'num'=> $num]);
 });
+
+Route::get('/first', function () {
+    return view('first');
+});
