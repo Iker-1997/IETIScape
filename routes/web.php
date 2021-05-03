@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +21,13 @@ Route::get('/', function () {
 
 Route::get('/election', function () {
     return view('election');
+});
+Route::get('/ranking', function () {
+    $data = User::orderBy('time','ASC')->get();
+    $num = $data->count();
+    return view('ranking', ['data'=> $data, 'num'=> $num]);
+});
+
+Route::get('/first', function () {
+    return view('first');
 });
