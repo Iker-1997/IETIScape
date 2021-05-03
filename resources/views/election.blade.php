@@ -9,9 +9,9 @@
         </div>
         <div class="m-4 flex justify-around">
             <div class="w-5/12 bg-white shadow-sm">
-                <div class="flex flex-col shadow border border-gray-200 h-full bg-white py-4">
-                    <img src="" alt="">
-                    <div class="flex flex-col justify-between h-full px-2 space-y-4">
+                <div class="flex flex-col shadow border border-gray-200 h-full bg-white pb-4">
+                    <img src="/images/Entrada_lateral.jpg" alt="Entrada Java">
+                    <div class="flex flex-col justify-between h-full px-2 mt-2 space-y-4">
                         <div>
                             <p class="italic">Java, que normalmente impone sus propias reglas, decide que la mejor opción para que no les pillen es entrar por la puerta lateral, que prácticamente nunca se abre.</p>
                         </div>
@@ -20,9 +20,9 @@
                 </div>
             </div>
             <div class="w-5/12 bg-white shadow-sm">
-                <div class="flex flex-col shadow border border-gray-200 h-full bg-white py-4">
-                    <img src="" alt="">
-                    <div class="flex flex-col justify-between h-full px-2 space-y-4">
+                <div class="flex flex-col shadow border border-gray-200 h-full bg-white pb-4">
+                    <img src="/images/Interior_lateral.jpg" alt="Entrada Django">
+                    <div class="flex flex-col justify-between h-full px-2 mt-2 space-y-4">
                         <div>
                             <p class="italic">Django, por el contrario, no se anda con rodeos y prefiere entrar por la puerta principal para ahorrarse mas problemas en un futuro.</p>
                         </div>
