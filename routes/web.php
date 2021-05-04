@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/election', function () {
+    return view('election');
+});
 Route::get('/ranking', function () {
     $data = User::orderBy('time','ASC')->get();
     $num = $data->count();
