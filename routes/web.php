@@ -22,12 +22,25 @@ Route::get('/', function () {
 Route::get('/election', function () {
     return view('election');
 });
+
 Route::get('/ranking', function () {
     $data = User::orderBy('time','ASC')->get();
     $num = $data->count();
     return view('ranking', ['data'=> $data, 'num'=> $num]);
 });
 
+Route::get('/intro', function () {
+    return view('intro');
+});
+
 Route::get('/first', function () {
     return view('first');
+});
+
+Route::get('/second', function () {
+    return view('second');
+});
+
+Route::get('/third', function () {
+    return view('third');
 });
