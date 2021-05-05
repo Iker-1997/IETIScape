@@ -24,10 +24,6 @@
                     </x-nav-link>
                 </div>
             </div>
-            <div class="flex items-center">
-                <a href="" class="">Log-in</a>  
-                <a href="" class="">Register</a>  
-            </div>
         </div>
     </x-slot>
 
