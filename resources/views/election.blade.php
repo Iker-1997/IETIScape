@@ -24,7 +24,7 @@
                     <img src="/images/Interior_lateral.jpg" alt="Entrada Django">
                     <div class="flex flex-col justify-between h-full px-2 mt-2 space-y-4">
                         <div>
-                            <p class="italic">Django, por el contrario, no se anda con rodeos y prefiere entrar por la puerta principal para ahorrarse mas problemas en un futuro.</p>
+                            <p class="italic">Django, por el contrario, no se anda con rodeos y prefiere entrar por la puerta principal para ahorrarse más problemas en un futuro.</p>
                         </div>
                         <a href="" class="self-center w-7/12 text-center px-10 bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-2 shadow-md">Quiero ser Django</a>
                     </div>
