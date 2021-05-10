@@ -1,17 +1,17 @@
 <x-app-layout>
     <img src="{{asset('images/scenes/pasillo.jpg')}}" alt="Pasillo Django" class="z-0 top-0 fixed w-full h-screen">
-    <div id="felpudo" class="hidden absolute overflow-hidden z-50 px-32 py-12 bg-black bg-opacity-80">
-        <img src="/images/Interior_lateral.jpg" alt="Felpudo" class="w-8/12 mx-auto">
+    <div id="felpudo" class="w-full hidden absolute overflow-hidden z-50 px-32 py-12 bg-black bg-opacity-80">
+        <img src="/images/periodico.png" alt="Felpudo" class="w-8/12 mx-auto">
     </div>
     <div class="flex flex-col justify-center items-center p-4">
         <div class="bg-white shadow-sm rounded-lg z-20 mb-4 bg-opacity-80">
-            <p class="p-5 italic">Estáis muy confusos pero, aún así, decidís ir en busca del profesor a su departamento y ver por qué no hay nadie en el lugar del examen.
+            <p class="p-5 italic">Conseguís entrar, pero el profesor no está. El despacho está algo desordenado, como si alguien hubiese salido con prisa de allí. Pensáis en ir a otro lugar, pero hay algo extraño en esa habitación.
             <br>
-            -Java: No me gusta ésta sensación. Todo está oscuro y me dan escalofríos...
+            -Java: ¡A éste despacho le falta algo!
             <br>
-            -Django: Yo todo lo veo muy normal. Pero no entiendo por qué sigo sin verte.
+            -Django: ¿Algo? Yo solamente lo veo desordenado.
             <br>
-            Cuando llegas te encuentras con la puerta cerrada. Seguro que hay alguna forma de abrirla.</p>
+            Es posible que por aquí encontréis alguna forma de ayudar a Java a encontrar lo que falta.</p>
         </div>
         <div class="flex flex-col space-y-4 px-2 z-20">
             <x-input placeholder="Introduce el codigo"></x-input>
@@ -22,7 +22,7 @@
                 <a href="" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">AVANZAR</a>     
             </div>
         </div>
-        <button id="verFelpudo" class="z-10 border-none block h-32 w-60 outline-none cursor-pointer mt-24 lg:mt-32" style="background:transparent;"></button>
+        <button id="verFelpudo" class="z-10 self-start border-none block h-32 w-60 outline-none cursor-pointer" style="background:transparent;"></button>
     </div>
     <script>
     $(document).ready(function () {

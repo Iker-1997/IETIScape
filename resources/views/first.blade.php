@@ -1,5 +1,5 @@
 <x-app-layout>
-    <img src="{{asset('images/scenes/pasillo.jpg')}}" alt="Pasillo Django" class="z-0 top-0 fixed w-full h-screen">
+    <img src="{{asset('images/scenes/Dark-Sala-de-actos.png')}}" alt="Sala de actos Java" class="z-0 top-0 fixed w-full h-screen">
 
     <div class="flex flex-col justify-around items-center p-8 space-y-6">
         <div class="bg-white shadow-sm rounded-lg z-50 bg-opacity-80">
