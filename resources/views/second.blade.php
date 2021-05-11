@@ -1,7 +1,7 @@
 <x-app-layout>
     <img src="{{asset('images/scenes/pasillo.jpg')}}" alt="Pasillo Django" class="z-0 top-0 fixed w-full h-screen">
-    <div id="felpudo" class="hidden absolute overflow-hidden z-50 px-32 py-12 bg-black bg-opacity-80">
-        <img src="/images/Interior_lateral.jpg" alt="Felpudo" class="w-8/12 mx-auto">
+    <div id="felpudo" class="hidden absolute overflow-hidden w-full min-h-screen z-50 px-32 py-12 bg-black bg-opacity-80">
+        <img src="/images/challenge2/django1.png" alt="Felpudo" class="w-8/12 mx-auto">
     </div>
     <div class="h-screen flex flex-col justify-between items-center p-4">
         <div class="z-20 flex flex-col items-center">
