@@ -1,0 +1,4 @@
+var info = {
+    "html": "",
+    "solution": ""
+}

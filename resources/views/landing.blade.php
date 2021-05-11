@@ -31,7 +31,7 @@
 
     <div class="p-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 bg-white overflow-hidden shadow-sm sm:rounded-lg p-5 shadow">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5 shadow">
                 <div class="p-10">
                     <p class="text-center">¡Bienvenid@s a IETI Escape Room!</p>
                     <p class="text-center">Este juego virtual nace de la motivación de dos alumnos del CFGS de Desarrollo de Aplicaciones Web, del instituto Esteve Terradas i Illa, a la hora de realizar su proyecto de final de curso.</p>
@@ -39,19 +39,35 @@
                     <p class="font-semibold text-xl text-center">Dificultad: DIFÍCIL</p>
                     <p class="font-semibold text-xl text-center">Nº de Jugadores: 2</p>
                     <br>
-                    <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que puedas contactar de forma fácil y rápida, y seguir las siguientes indicaciones.</p>
-                    <br>
-                    <p class="text-lg">PARA EMPEZAR EL JUEGO:</p>
+                    <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que jugar y seguir las siguientes indicaciones:</p>
                     <br>
                     <ul class="list-disc list-inside">
+                        <li>Cada jugador tiene que iniciar sesión en la página.</li>
+                        <li>Si no tenéis ninguna cuenta creada, por favor, id a "Registrarse" para crear una.</li>
+                        <li>Buscad una forma de manteneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... Algo que sea fácil y rápido para mantener una conversación fluida.</li>
+                    </ul>
+                    <!-- <ul class="list-disc list-inside">
                         <li>Uno de los dos componentes debe introducir un nombre de equipo.</li>
                         <li>Esa misma persona, tiene que seleccionar "GENERAR ENLACE" para invitar a la otra al juego.</li>
                         <li>Una vez se haya unido, podrás seleccionar el botón "EMPEZAR" para iniciar conjuntamente la aventura.</li>
-                    </ul>
-                    <br>
-                    <p class="font-semibold text-xl text-center">¡BUENA SUERTE!</p>
+                    </ul> -->
+                    <div class="flex justify-around mt-10">
+                    @if (Route::has('login'))
+                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        @auth
+                            <a href="{{ url('/') }}" class="text-sm text-gray-700 underline">ACCEDER</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">INICIAR SESIÓN</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">REGISTRARSE
+                        </a>
+                            @endif
+                        @endauth
+                        </div>
+                    @endif
+                    </div>
                 </div>
-                <div class="pt-10 space-y-4 grid justify-items-center">
+                    <!--<div class="pt-10 space-y-4 grid items-center">
                     <div class="justify-items-center space-y-4 ">
                         <x-label class="block pb-1 text-shadow">Nombre de equipo:</x-label>
                         <x-input class="block border-2 shadow" placeholder="Introducir nombre">
@@ -59,14 +75,16 @@
                         <x-label class="block pb-1 text-shadow">Invitación:</x-label>
                         <x-input class="block border-2 shadow" placeholder="Enlace">
                         </x-input>
-                        <x-button class="block p-2 shadow-md">Generar enlace
-                        </x-button>
+                        <a class="block p-2 shadow-md">Generar enlace
+                        </a>
+                        <a class="block p-2 shadow-md">Iniciar sesión
+                        </a>
                     </div>
                     <div>
-                        <x-button class="block px-16 p-5 bg-red-700 hover:bg-red-600 shadow-md">¡EMPEZAR!
-                        </x-button>
+                        <a class="block px-16 p-5 bg-red-700 hover:bg-red-600 shadow-md">¡EMPEZAR!
+                        </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
