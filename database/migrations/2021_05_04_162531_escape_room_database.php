@@ -13,74 +13,55 @@ class EscapeRoomDatabase extends Migration
      */
     public function up()
     {
-        Schema::create('escapeRooms', function (Blueprint $table) {
-            $table->id();
-            $table->integer('category');
-            $table->timestamps();
-        });
-
+    
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('games', function (Blueprint $table) {
+            $table->id();
             $table->time('time');
-            $table->foreignId('escapeRoom_id')->constrained();
+            $table->time('finished');
+            $table->foreignId('team_id')->constrained();            
             $table->timestamps();
         });
 
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('escapeRoom_id')->constrained();
             $table->timestamps();
         });
 
         Schema::create('screens', function (Blueprint $table) {
             $table->id();
-            $table->text('description');
+            $table->json('data');
             $table->integer('order');  
-            $table->foreignId('escapeRoom_id')->constrained();
             $table->foreignId('role_id')->constrained();
             $table->timestamps();
         });
 
-        Schema::create('bg_images', function (Blueprint $table) {
+        Schema::create('itinerarys', function (Blueprint $table) {
             $table->id();
-            $table->binary('image');
-            $table->foreignId('screen_id')->constrained();
+            $table->foreignId('screen_id')->constrained();            
+            $table->foreignId('game_id')->constrained();            
             $table->timestamps();
         });
 
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('users_teams', function (Blueprint $table) {
             $table->id();
-            $table->binary('image');
-            $table->foreignId('screen_id')->constrained();
-            $table->timestamps();
-        });
-
-        Schema::create('texts', function (Blueprint $table) {
-            $table->id();
-            $table->text('description');
-            $table->foreignId('screen_id')->constrained();
-            $table->timestamps();
-        });
-
-        Schema::create('solutions', function (Blueprint $table) {
-            $table->id();
-            $table->text('description');
-            $table->foreignId('screen_id')->constrained();
-            $table->timestamps();
-        });
-
-        Schema::create('clues', function (Blueprint $table) {
-            $table->id();
-            $table->text('description');
-            $table->foreignId('screen_id')->constrained();
-            $table->timestamps();
-        });
-
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('team_id')->constrained();
+            $table->timestamps();
+        });
+
+        Schema::create('roles_users_games', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('game_id')->constrained();
+            $table->foreignId('role_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -91,18 +72,13 @@ class EscapeRoomDatabase extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('escapeRooms');
         Schema::dropIfExists('teams');
+        Schema::dropIfExists('games');
+        Schema::dropIfExists('itinerarys');
         Schema::dropIfExists('roles');
-        Schema::dropIfExists('phases');
         Schema::dropIfExists('screens');
-        Schema::dropIfExists('texts');
-        Schema::dropIfExists('solutions');
-        Schema::dropIfExists('clues');
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role_id');
-            $table->dropColumn('team_id');
-        });
+        Schema::dropIfExists('users_teams');
+        Schema::dropIfExists('roles_users_games');
 
     }
 }

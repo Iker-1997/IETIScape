@@ -39,10 +39,7 @@
                     <p class="font-semibold text-xl text-center">Dificultad: DIFÍCIL</p>
                     <p class="font-semibold text-xl text-center">Nº de Jugadores: 2</p>
                     <br>
-                    <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que puedas contactar de forma fácil y rápida, y seguir las siguientes indicaciones.</p>
-                    <br>
-                    <p class="text-lg">PARA EMPEZAR EL JUEGO:</p>
-                    <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que jugar y seguir las siguientes indicaciones:</p>
+                    <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que compartir la experiencia y seguir las siguientes indicaciones:</p>
                     <br>
                     <ul class="list-disc list-inside">
                         <li>Cada jugador tiene que iniciar sesión en la página.</li>
@@ -57,10 +54,10 @@
                     <br>
                     <p class="font-semibold text-xl text-center">¡BUENA SUERTE!</p>
                     </ul> -->
-                    <div class="mt-6">
-                        <a href="/login" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">INICIAR SESIÓN</a>
-                        <a href="/register" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">REGISTRARSE</a>
-                    </div>
+                </div>
+                <div class="flex justify-around items-center">
+                    <a href="/login" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">INICIAR SESIÓN</a>
+                    <a href="/register" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">REGISTRARSE</a>
                 </div>
                 <div class="pt-10 space-y-4 grid justify-items-center">
                     <!--<div class="pt-10 space-y-4 grid items-center">
