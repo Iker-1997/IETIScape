@@ -1,4 +1,0 @@
-var info = {
-    "html": "",
-    "solution": ""
-}

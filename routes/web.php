@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,24 +19,28 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/election', function () {
+    return view('election');
+});
 
-require __DIR__.'/auth.php';
+Route::get('/ranking', function () {
+    $data = User::orderBy('time','ASC')->get();
+    $num = $data->count();
+    return view('ranking', ['data'=> $data, 'num'=> $num]);
+});
+
+Route::get('/intro', function () {
+    return view('intro');
+});
+
+Route::get('/first', function () {
+    return view('first');
+});
+
+Route::get('/second', function () {
+    return view('second');
+});
 
 Route::get('/third', function () {
     return view('third');
-});
-
-Route::get('/fourth', function () {
-    return view('fourth');
-});
-
-Route::get('/fifth', function () {
-    return view('fifth');
-});
-
-Route::get('/end', function () {
-    return view('end');
 });
