@@ -26,7 +26,7 @@ Route::get('/election', function () {
 });
 
 Route::get('/ranking', function () {
-    $data = User::orderBy('time','ASC')->get();
+    $data = User::orderBy('uqid','ASC')->get();
     $num = $data->count();
     return view('ranking', ['data'=> $data, 'num'=> $num]);
 });
