@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/team', function () {
-    return view('dashboard');
+    return view('team');
 });
 
 Route::get('/election', function () {
