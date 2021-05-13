@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/team', function () {
+    return view('dashboard');
+});
+
 Route::get('/election', function () {
     return view('election');
 });
