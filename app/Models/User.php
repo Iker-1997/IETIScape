@@ -21,7 +21,12 @@ class User extends Authenticatable
     public function users_teams() {
         return $this->hasMany(UsersTeam::class);
     }
-
+        
+    public function scopeName($query, $name){
+        if($name)
+            return $query->where('name', 'LIKE', "%name%");
+    }
+    
     /**
      * The attributes that are mass assignable.
      *
