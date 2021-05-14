@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 use App\Models\User;
+use App\Models\UsersTeam;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +31,11 @@ Route::get('/team', function () {
 });
 
 Route::get('/election', function () {
-    return view('election');
+    $teams = DB::table('teams')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', Auth::user()->id)->get();
+    $team = json_decode($teams, true);
+    return view('election', [
+        'team' => $team
+    ]);
 });
 
 Route::get('/intro', function () {

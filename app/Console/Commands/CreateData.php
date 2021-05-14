@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
 use App\Models\Game;
@@ -50,14 +51,14 @@ class CreateData extends Command
         ->create([
             'name' => 'Iker',
             'email' => 'iker@gmail.com',
-            'password' => hash('sha256','12345'),
+            'password' => Hash::make('12345'),
         ]);
 
         User::query()
         ->create([
             'name' => 'Sílvia',
             'email' => 'silvia@gmail.com',
-            'password' => hash('sha256','12345'),
+            'password' => Hash::make('12345'),
         ]);
 
         Team::query()
