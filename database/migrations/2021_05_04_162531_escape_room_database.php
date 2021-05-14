@@ -22,8 +22,8 @@ class EscapeRoomDatabase extends Migration
 
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->time('time');
-            $table->time('finished');
+            $table->time('time')->nullable();
+            $table->boolean('finished')->nullable();
             $table->foreignId('team_id')->constrained();            
             $table->timestamps();
         });
@@ -36,13 +36,13 @@ class EscapeRoomDatabase extends Migration
 
         Schema::create('screens', function (Blueprint $table) {
             $table->id();
-            $table->json('data');
+            $table->json('data')->nullable();
             $table->integer('order');  
             $table->foreignId('role_id')->constrained();
             $table->timestamps();
         });
 
-        Schema::create('itinerarys', function (Blueprint $table) {
+        Schema::create('itineraries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('screen_id')->constrained();            
             $table->foreignId('game_id')->constrained();            

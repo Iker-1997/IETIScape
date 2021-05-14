@@ -14,4 +14,13 @@ class Team extends Model
     public function games() {
         return $this->belongsTo(Game::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
 }

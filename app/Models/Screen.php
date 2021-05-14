@@ -19,4 +19,20 @@ class Screen extends Model
     public function roles() {
         return $this->belongsTo(Screen::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+
+    protected $casts = [
+        'data' => 'array',
+    ];
+
+    protected $fillable = [
+        'data',
+        'order',
+        'role_id'
+    ];
 }
