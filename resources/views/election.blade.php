@@ -23,7 +23,7 @@
             </div>
             <div class="w-5/12 bg-white shadow-sm">
                 <div class="flex flex-col shadow border border-gray-200 h-full bg-white pb-4">
-                    <img src="/images/Interior_lateral.jpg" alt="Entrada Django">
+                    <img src="/images/Entrada-frontal.jpg" alt="Entrada Django">
                     <div class="flex flex-col justify-between h-full px-2 mt-2 space-y-4">
                         <div>
                             <p class="italic">Django, por el contrario, no se anda con rodeos y prefiere entrar por la puerta principal para ahorrarse más problemas en un futuro.</p>

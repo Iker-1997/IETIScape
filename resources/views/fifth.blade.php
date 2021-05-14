@@ -1,5 +1,5 @@
 <x-app-layout>
-    <img src="{{asset('images/fifth/java1.png')}}" alt="Pasillo Django" class="z-0 top-0 fixed w-full h-screen">
+    <img src="{{asset('images/challenge5/django2.png')}}" alt="Lavabo Java" class="z-0 top-0 fixed w-full h-screen">
     <div class="flex flex-col justify-between items-center p-4 h-screen">
         <div class="bg-white shadow-sm rounded-lg z-20 mb-4 bg-opacity-80">
             <p class="p-5 italic">Las señales os hacen dirigiros a uno de los lavabos. Una vez allí miráis alrededor y os posicionáis frente a los espejos. No os imagináis lo que iba a pasar a continuación.
@@ -13,9 +13,8 @@
         <div class="flex flex-col space-y-4 px-2 z-20">
             <x-input placeholder="Introduce el codigo"></x-input>
             <div class="flex space-x-12">
-                <button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">PISTA 1</button>
-                <button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">PISTA 2</button>
-                <a href="" class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">AVANZAR</a>     
+                <button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">PISTA</button>
+                <button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md">AVANZAR</button>     
             </div>
         </div>
     </div>
