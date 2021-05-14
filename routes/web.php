@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +14,15 @@ use App\Models\User;
 |
 */
 
+require __DIR__.'/auth.php';
+
+
 Route::get('/', function () {
     return view('landing');
+});
+
+Route::get('/team', function () {
+    return view('dashboard');
 });
 
 Route::get('/election', function () {
@@ -24,7 +30,7 @@ Route::get('/election', function () {
 });
 
 Route::get('/ranking', function () {
-    $data = User::orderBy('time','ASC')->get();
+    $data = User::orderBy('uqid','ASC')->get();
     $num = $data->count();
     return view('ranking', ['data'=> $data, 'num'=> $num]);
 });
@@ -43,16 +49,4 @@ Route::get('/second', function () {
 
 Route::get('/third', function () {
     return view('third');
-});
-
-Route::get('/fourth', function () {
-    return view('fourth');
-});
-
-Route::get('/fifth', function () {
-    return view('fifth');
-});
-
-Route::get('/end', function () {
-    return view('end');
 });

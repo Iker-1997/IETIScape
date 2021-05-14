@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Game;
+use App\Models\Screen;
 
-class Team extends Model
+class Itinerary extends Model
 {
     use HasFactory;
 
     public function games() {
         return $this->belongsTo(Game::class);
+    }
+
+    public function screens() {
+        return $this->hasMany(Screen::class);
     }
 }
