@@ -134,61 +134,61 @@ class CreateScreen extends Command
         ->create([
             'data' => json_encode($data1way1),
             'order' => 1,
-            'role_id' => 1,
+            'itinerary' => 1,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data1way2),
             'order' => 1,
-            'role_id' => 2,
+            'itinerary' => 2,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data2way1),
             'order' => 2,
-            'role_id' => 1,
+            'itinerary' => 1,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data2way2),
             'order' => 2,
-            'role_id' => 2,
+            'itinerary' => 2,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data3way1),
             'order' => 3,
-            'role_id' => 1,
+            'itinerary' => 1,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data3way2),
             'order' => 3,
-            'role_id' => 2,
+            'itinerary' => 2,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data4way1),
             'order' => 4,
-            'role_id' => 2,
+            'itinerary' => 1,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data4way2),
             'order' => 4,
-            'role_id' => 2,
+            'itinerary' => 2,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data5way1),
             'order' => 5,
-            'role_id' => 1,
+            'itinerary' => 1,
         ]);
         Screen::query()
         ->create([
             'data' => json_encode($data5way2),
             'order' => 5,
-            'role_id' => 2,
+            'itinerary' => 2,
         ]);
     }
 }

@@ -33,6 +33,7 @@ class Screen extends Model
     protected $fillable = [
         'data',
         'order',
-        'role_id'
+        'role_id',
+        'itinerary',
     ];
 }

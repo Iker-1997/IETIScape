@@ -24,7 +24,8 @@ class EscapeRoomDatabase extends Migration
             $table->id();
             $table->time('time')->nullable();
             $table->boolean('finished')->nullable();
-            $table->foreignId('team_id')->constrained();            
+            $table->foreignId('team_id')->constrained(); 
+            $table->integer('itinerary');           
             $table->timestamps();
         });
 
@@ -38,7 +39,7 @@ class EscapeRoomDatabase extends Migration
             $table->id();
             $table->json('data')->nullable();
             $table->integer('order');  
-            $table->foreignId('role_id')->constrained();
+            $table->integer('itinerary');
             $table->timestamps();
         });
 

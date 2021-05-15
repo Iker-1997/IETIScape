@@ -80,11 +80,18 @@ class CreateData extends Command
             'time' => '09:58:41',
             'finished' => true,
             'team_id' => 1,
+            'itinerary' => 1,
         ]);       
 
         Itinerary::query()
         ->create([
             'screen_id' => 1,
+            'game_id' => 1,
+        ]);
+
+        Itinerary::query()
+        ->create([
+            'screen_id' => 3,
             'game_id' => 1,
         ]);
 

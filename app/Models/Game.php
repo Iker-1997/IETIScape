@@ -23,6 +23,7 @@ class Game extends Model
     protected $fillable = [
         'time',
         'finished',
-        'team_id'
+        'team_id',
+        'itinerary'
     ];
 }
