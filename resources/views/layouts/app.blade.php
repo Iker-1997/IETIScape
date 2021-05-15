@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/main.js') }}" defer></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -29,9 +28,7 @@
                     {{ $header }}
                 </div>
             </header>
-
             @endisset
-
             <!-- Page Content -->
             <main>
                 {{ $slot }}
