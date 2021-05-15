@@ -1,5 +1,14 @@
 <x-app-layout>
-    <img src='{{asset("images/scenes/Despacho-Java1.png")}}' alt='Despacho Java' class='z-0 top-0 fixed w-full h-screen'>
+    @foreach($data as $d)
+        <script>
+            $(document).ready(function(){
+                let datos = <?php print_r($d); ?>; 
+                $("main").html(datos["html"]["django"]);
+            });
+        </script>
+    @endforeach   
+    {{--
+    <!-- <img src='{{asset("images/scenes/Despacho-Java1.png")}}' alt='Despacho Java' class='z-0 top-0 fixed w-full h-screen'>
     <div id='periodico' class='w-full hidden absolute overflow-hidden z-50 px-32 py-12 bg-black bg-opacity-80'>
         <img src='/images/challenge3/periodico.png' alt='Periodico' class='w-8/12 mx-auto'>
     </div>
@@ -24,5 +33,5 @@
         </div>
         <img src='/images/challenge3/periodico.png' id='verPeriodico' class='z-10 mt-2 ml-6 self-start border-none hidden xl:block h-12 w-20 outline-none cursor-pointer' style='background:transparent;'>
     </div>
-    <script src='{{ asset("js/page3java1.js") }}'></script>
+    <script src='{{ asset("js/page3java1.js") }}'></script> -->--}}
 </x-app-layout>

@@ -54,11 +54,35 @@ Route::get('/first', function () {
 });
 
 Route::get('/second', function () {
-    return view('second');
+    $screen = Screen::select('data')->where('order',2)->inRandomOrder()->first();
+    $data = json_decode($screen, true);
+       return view('second', [
+        'data' => $data
+    ]);
 });
 
 Route::get('/third', function () {
-    return view('third');
+    $screen = Screen::select('data')->where('order',3)->inRandomOrder()->first();
+    $data = json_decode($screen, true);
+        return view('third', [
+        'data' => $data
+    ]);
+});
+
+Route::get('/fourth', function () {
+    $screen = Screen::select('data')->where('order',4)->inRandomOrder()->first();
+    $data = json_decode($screen, true);
+        return view('fourth', [
+        'data' => $data
+    ]);
+});
+
+Route::get('/fifth', function () {
+    $screen = Screen::select('data')->where('order',5)->inRandomOrder()->first();
+    $data = json_decode($screen, true);
+        return view('fifth', [
+        'data' => $data
+    ]);
 });
 
 Route::post('/api/games', function (Request $request) {

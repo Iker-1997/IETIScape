@@ -1,5 +1,13 @@
 <x-app-layout>
-    <img src='{{asset("images/scenes/Puerta-despacho-Java.png")}}' alt='Puerta despacho Django' class='z-0 top-0 fixed w-full h-screen'>
+    @foreach($data as $d)
+        <script>
+            $(document).ready(function(){
+                let datos = <?php print_r($d); ?>; 
+                $("main").html(datos["html"]["django"]);
+            });
+        </script>
+    @endforeach   
+    {{--<!-- <img src='{{asset("images/scenes/Puerta-despacho-Java.png")}}' alt='Puerta despacho Django' class='z-0 top-0 fixed w-full h-screen'>
     <div id='felpudo' class='hidden absolute overflow-hidden w-full min-h-screen z-50 px-32 py-12 bg-black bg-opacity-80'>
         <img src='/images/challenge2/java1.png' alt='Felpudo' class='w-8/12 mx-auto'>
     </div>
@@ -25,5 +33,5 @@
         </div>
         <button id='verFelpudo' class='justify-self-end self-start z-10 border-none h-32 w-60 outline-none cursor-pointer mb-2 ml-80' style='background:transparent;'></button>
     </div>
-    <script src='{{ asset("js/page2.js") }}'></script>
+    <script src='{{ asset("js/page2.js") }}'></script> -->--}}
 </x-app-layout>

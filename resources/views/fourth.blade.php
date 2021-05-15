@@ -1,5 +1,14 @@
 <x-app-layout>
-    <img src='{{asset("images/scenes/Pasillo-Django.jpg")}}' alt='Pasillo Django' class='z-0 top-0 fixed w-full h-screen'>
+    @foreach($data as $d)
+        <script>
+            $(document).ready(function(){
+                let datos = <?php print_r($d); ?>; 
+                $("main").html(datos["html"]["django"]);
+            });
+        </script>
+    @endforeach   
+    {{--
+    <!-- <img src='{{asset("images/scenes/Pasillo-Django.jpg")}}' alt='Pasillo Django' class='z-0 top-0 fixed w-full h-screen'>
     <div class='flex flex-col justify-center items-center p-4'>
         <div class='bg-white shadow-sm rounded-lg z-20 mb-4 bg-opacity-80'>
             <p class='p-5 italic'>Conseguís avanzar y dejáis atrás el departamento. En algún punto del instituto tenéis que poder encontraros, pero ¿dónde? Veis que hay un mapa en el pasillo y es posible que haya algún tipo de indicación en él.</p>
@@ -14,5 +23,5 @@
             </div>
         </div>
     </div>
-    <script src='{{ asset("js/page4.js") }}'></script>
+    <script src='{{ asset("js/page4.js") }}'></script> -->--}}
 </x-app-layout>
