@@ -32,14 +32,7 @@
     <div class="p-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5 shadow">
-                <div class="container w-full md:w-4/5 xl:w-3/5 mx-auto space-y-4 py-5">
-                    <div class="flex items-center space-x-4">
-                        <x-input type="search" class="shadow"></x-input>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                        </svg>
-                    </div>   
-                                    
+                <div class="container w-full md:w-4/5 xl:w-3/5 mx-auto space-y-4 py-5">       
                     <table class="table w-full text-center border-2 shadow">
                         <thead>
                             <tr>
@@ -52,30 +45,18 @@
                             $count = 1;
                         ?>
                         <tbody class="divide-y">
-                            @foreach ($data as $user)
+                            @foreach ($data as $team)
                             <tr>
                                 <th class="p-3" scope="row">{{ $count }}</th>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->time }}</td>
+                                <td>{{ $team->name }}</td>
+                                <td>{{ $team->time }}</td>
                             </tr>
                             <?php
                                 $count ++;
                             ?>
                             @endforeach
                         </tbody>
-                    </table> 
-                        
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center">
-                            Por página:
-                            <select class="border rounded ml-3 shadow" bind:value={per_page}>
-                                <option>3</option>
-                                <option>5</option>
-                                <option>10</option>
-                            </select>
-                        </div>
-                        {{ $data->render() }}    
-                    </div>         
+                    </table>         
                 </div>
             </div>
         </div>

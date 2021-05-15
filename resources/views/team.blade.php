@@ -39,8 +39,8 @@
                     <br>
                     <ul class="list-disc list-inside">
                         <li>Lo primero que tienes que hacer es elegir con tu compañero/a un nombre para vuestro equipo e introducirlo en el campo correspondiente.</li>
-                        <li>Deberás generar un código para invitar a la otra persona al juego y enviárselo.</li>
-                        <li>Una vez se haya unido, podrás seleccionar el botón "EMPEZAR" para iniciar conjuntamente la aventura.</li>
+                        <li>Si tu compañero/a es quien crea la partida, tú solamente deberás introducir en el campo el "código" que te haga llegar y unirte.</li>
+                        <li>Si por el contrario eres tu quien crea la partida, deberás introducir un nombre.</li>
                     </ul>
                     <br>
                     <p class="font-semibold text-3xl text-center mt-6">¡BUENA SUERTE!</p>
