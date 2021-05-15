@@ -46,22 +46,25 @@
                     <p class="font-semibold text-3xl text-center mt-6">¡BUENA SUERTE!</p>
                     <div class="mt-10">
                         <h2 class="font-bold text-lg">JUGADORES:</h2>
-                        <ul class="list-decimal list-inside">
-                            <li>{{ Auth::user()->name }}</li>
-                            <li></li>
-                        </ul>
+                        <ol id='players' class="list-decimal list-inside">
+                        </ol>
                     </div>
                 </div>
                 <div class="pt-10 space-y-4 grid justify-items-center">
                     <div class="justify-items-center space-y-4 ">
+                        <h2 class="font-bold text-lg">Unirse a una partida existente:</h2>
+                        <x-label class="block pb-1 text-shadow">Invitación:</x-label>
+                        <x-input id='game-id' class="block border-2 shadow p-3" placeholder="Código">
+                        </x-input>
+                        <button id="joinGame" class="self-center text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-3 shadow-md">Unirse a partida
+                        </button>
+
+                        <h2 class="font-bold text-lg">Crear una nueva partida:</h2>
                         <x-label class="block pb-1 text-shadow">Nombre de equipo:</x-label>
                         <x-input class="block border-2 shadow p-3" placeholder="Introducir nombre">
                         </x-input>
-                        <x-label class="block pb-1 text-shadow">Invitación:</x-label>
-                        <x-input class="block border-2 shadow p-3" placeholder="Código">
-                        </x-input>
-                        <a href="" class="self-center text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-3 shadow-md">Generar código
-                        </a>
+                        <button id='createGame' class="self-center text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-3 shadow-md">Crear partida
+                        </button>
                     </div>
                     <div class="p-10">
                         <a href="/election" class="self-center text-center bg-red-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150 block px-12 p-5 text-xl shadow-md">¡EMPEZAR!
