@@ -103,4 +103,4 @@ Route::post('/api/hello', function () {
     return 'hello';
 });
 
-Route::resource('ranking', 'App\Http\Controllers\UserController');
+Route::resource('ranking', 'App\Http\Controllers\TeamController');
