@@ -19,4 +19,8 @@ class Role extends Model
     public function screens() {
         return $this->hasMany(Screen::class);
     }
+
+    protected $fillable = [
+        'name',
+    ];
 }

@@ -19,4 +19,14 @@ class Itinerary extends Model
     public function screens() {
         return $this->hasMany(Screen::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'screen_id',
+        'game_id'
+    ];
 }

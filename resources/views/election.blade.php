@@ -1,7 +1,9 @@
 <x-app-layout>
     <div class="flex flex-col justify-center items-center">
         <div class="bg-white shadow-sm m-4 text-center">
-            <h1 class="font-extrabold text-5xl pt-4">BIENVENIDOS A LA AVENTURA</h1>
+        @foreach($team as $team)
+            <h1 class="font-extrabold text-5xl pt-4">BIENVENIDOS A LA AVENTURA "<span>{{ $team['name'] }}</span>"</h1>
+        @endforeach
             <p class="p-4 font-semibold text-red-700">El tiempo ha comenzado a correr, teneis 5 minutos para elegir el personaje que querais. Recordad que si escogeis los dos el mismo personaje, no podreis avanzar en la historia</p>
         </div>
         <div class="bg-white shadow-sm m-4">

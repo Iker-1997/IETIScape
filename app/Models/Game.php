@@ -14,4 +14,15 @@ class Game extends Model
     public function teams() {
         return $this->belongsTo(Team::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'time',
+        'finished',
+        'team_id'
+    ];
 }

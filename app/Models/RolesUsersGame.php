@@ -24,4 +24,15 @@ class RolesUsersGame extends Model
     public function roles() {
         return $this->belongsTo(Role::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'role_id',
+        'game_id'
+    ];
 }

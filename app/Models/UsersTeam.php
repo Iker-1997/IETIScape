@@ -19,4 +19,14 @@ class UsersTeam extends Model
     public function teams() {
         return $this->belongsTo(Team::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'team_id'
+    ];
 }

@@ -63,7 +63,7 @@
                             ?>
                             @endforeach
                         </tbody>
-                    </table>     
+                    </table> 
                         
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -74,7 +74,7 @@
                                 <option>10</option>
                             </select>
                         </div>
-                        <Pagination bind:current={current} {num_items} per_page={per_page} />
+                        {{ $data->render() }}    
                     </div>         
                 </div>
             </div>
