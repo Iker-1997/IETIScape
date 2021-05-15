@@ -46,7 +46,9 @@ function getUsers() {
 
 function updatePlayers(users) {
     const players = document.getElementById("players");
-
+    while (players.firstChild) {
+        players.removeChild(players.firstChild);
+    }
     users.forEach((user) => {
         const userLi = document.createElement("li");
         userLi.innerHTML = user.name;
