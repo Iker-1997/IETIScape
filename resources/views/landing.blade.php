@@ -41,11 +41,20 @@
                     <br>
                     <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que compartir la experiencia y seguir las siguientes indicaciones:</p>
                     <br>
+                @if (Route::has('login'))
+                    @auth
+                    <ul class="list-disc list-inside">
+                        <li>Buscad una forma de manteneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... Algo que sea fácil y rápido para mantener una conversación fluida.</li>
+                        <li>Pulsa "Entrar" para continuar y crear una partida.</li>
+                    </ul>
+                    @else
                     <ul class="list-disc list-inside">
                         <li>Uno de los dos jugadores tiene que iniciar sesión en la página.</li>
                         <li>Si este no tiene ninguna cuenta creada, por favor, ve a "REGISTRARSE" para crear una.</li>
                         <li>Buscad una forma de manteneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... Algo que sea fácil y rápido para mantener una conversación fluida.</li>
                     </ul>
+                    @endauth
+                @endif
                 </div>
             @if (Route::has('login'))
                 @auth

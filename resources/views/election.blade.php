@@ -4,7 +4,7 @@
         @foreach($team as $team)
             <h1 class="font-extrabold text-5xl pt-4">BIENVENIDOS A LA AVENTURA "<span>{{ $team['name'] }}</span>"</h1>
         @endforeach
-            <p class="p-4 font-semibold text-red-700">El tiempo ha comenzado a correr, teneis 5 minutos para elegir el personaje que querais. Recordad que si escogeis los dos el mismo personaje, no podreis avanzar en la historia</p>
+            <p class="p-4 font-semibold text-red-700">El tiempo ha comenzado a correr. Recordad que si escogeis los dos el mismo personaje, no podreis avanzar en la historia</p>
         </div>
         <div class="bg-white shadow-sm m-4 mx-10">
             <p class="p-4 italic">Django es un chico sencillo y alegre, pero un tanto despistado. En cambio Java, suele estar metida siempre en líos por su cabezonería y su orgullo, pero en su cabeza lo tiene todo organizado. Se conocieron el día de la matriculación en el instituto Esteve Terradas y desde entonces han sido inseparables. Ambes suspendieron varias unidades formativas y les ha tocado asistir al centro en la semana de recuperaciones, pero van con algunos minutos de retraso. Debido a la situación actual de pandemia, los exámenes se realizan en la sala de actos, que es la más espaciosa para mantener las distancias. Al situarse en la entrada ...</p>
