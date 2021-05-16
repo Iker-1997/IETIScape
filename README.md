@@ -84,6 +84,6 @@ Seguidamente podrás dirigirte a tu navegador y en la barra de direcciones escri
 
 
 ## Creadores ✒️
-_Desarrollado por:_
+Desarrollado por:
 * **Iker Cayero** - [Iker-1997](https://github.com/Iker-1997)
 * **Silvia De La Cruz** - [silviadlc](https://github.com/silviadlc)
