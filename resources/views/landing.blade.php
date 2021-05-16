@@ -22,7 +22,7 @@
                     <x-nav-link href="/ranking">
                         {{ __('Ranking') }}
                     </x-nav-link>
-                    <div class="sm:flex sm:items-center sm:ml-6">
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="flex text-sm font-semibold text-black-500 hover:text-gray-500 hover:border-gray-300 focus:outline-none focus:text-gray-500 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -61,7 +61,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-5 shadow">
                 <div class="p-10">
-                    <p class="text-center">¡Bienvenid@s a IETI Escape Room!</p>
+                    <p class="text-center text-xl">¡Bienvenid@s a IETI Escape Room!</p><br>
                     <p class="text-center">Este juego virtual nace de la motivación de dos alumnos del CFGS de Desarrollo de Aplicaciones Web, del instituto Esteve Terradas i Illa, a la hora de realizar su proyecto de final de curso.</p>
                     <br>
                     <p class="font-semibold text-xl text-center">Dificultad: DIFÍCIL</p>

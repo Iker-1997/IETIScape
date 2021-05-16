@@ -85,6 +85,10 @@ Route::get('/fifth', function () {
     ]);
 });
 
+Route::get('/end', function () {
+    return view('end');
+});
+
 Route::post('/api/games', function (Request $request) {
     $id = $request->input('id');
     $users = DB::table('games')
