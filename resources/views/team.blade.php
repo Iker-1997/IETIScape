@@ -59,7 +59,7 @@
 
     <div class="p-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
                 <div class="grid grid-cols-2 p-6">
                     <div class="pt-10 px-10 pb-4">
                         <p class="text-2xl font-bold">¡Un placer conocerte "<span>{{ Auth::user()->name }}</span>"!</p>
