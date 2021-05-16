@@ -36,7 +36,7 @@ Seguidamente podrás dirigirte a tu navegador y en la barra de direcciones escri
     <tr valign="top">
       <td width="25%" align="center">
         <span><b>jQuery</b></span><br><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/jquery.svg">
+        <img height="55px" src="https://cdn.svgporn.com/logos/jquery.svg">
       </td>
       <td width="25%" align="center">
         <span><b>PHP</b></span><br><br><br>
