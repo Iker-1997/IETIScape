@@ -47,7 +47,7 @@ Seguidamente podrás dirigirte a tu navegador y en la barra de direcciones escri
         <img height="64px" src="https://cdn.svgporn.com/logos/laravel.svg">
       </td>
       <td width="25%" align="center">
-        <span><b>Apache Server</b></span><br><br><br>
+        <span><b>Apache</b></span><br><br><br>
         <img height="64px" src="https://cdn.svgporn.com/logos/apache.svg">
       </td>
     </tr>
