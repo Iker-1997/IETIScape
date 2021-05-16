@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\TeamController;
 
 use App\Models\User;
 use App\Models\UsersTeam;
@@ -100,11 +100,15 @@ Route::post('/api/games', function (Request $request) {
     return response()->json($users);
 });
 
-Route::post('/api/hello', function () {
+Route::get('/api/createGame/{id}/{teamName}', function (Request $request) {
+    $team = new TeamController;
+    return $team->store(json_encode([
+        "id" => $request->route('id'),
+        "teamName" => rawurldecode($request->route('teamName'))
+    ]));
     // crear un nuevo registro en tabla games
     // recoger el id de la partida creada
     // devolver el id
-    return 'hello';
 });
 
 Route::resource('ranking', 'App\Http\Controllers\TeamController');
