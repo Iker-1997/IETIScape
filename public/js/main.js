@@ -3,24 +3,45 @@ $(document).ready(function () {
         getUsers().then(updatePlayers);
     });
 
-    $("#createGame").click(function () {
-        poll(function () {
-            return new Promise(function (resolve, reject) {
-                getUsers().then((users) => {
-                    if (users && users.length > 1) {
-                        console.log("user joined!");
-                        updatePlayers(users);
-                        resolve(false);
-                    } else {
-                        console.log("no users joined yet!");
-                        // este return false hace que poll() vuelva a ejecutarse
-                        resolve(true);
-                    }
-                });
-            });
-        }, 3000);
-    });
+    
 });
+
+function createGame(val){
+    let csrf = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+    let teamName = $("#teamName").val();
+    $.ajax({
+        url: "api/createGame/"+val+"/"+teamName,
+        method: "GET",
+        crossDomain : true,
+        accepts: "application/json",
+        dataType: 'json',
+        headers: {
+            'Content-Type': 'application/json',
+            "Accept": 'application/json',
+            "X-CSRF-TOKEN": csrf
+        },
+        success: function(res){
+            $("#game-id").val(res['game_id']);
+        }
+    });
+    poll(function () {
+        return new Promise(function (resolve, reject) {
+            getUsers().then((users) => {
+                if (users && users.length > 1) {
+                    console.log("user joined!");
+                    updatePlayers(users);
+                    resolve(false);
+                } else {
+                    console.log("no users joined yet!");
+                    // este return false hace que poll() vuelva a ejecutarse
+                    resolve(true);
+                }
+            });
+        });
+    }, 3000);
+}
 
 function getUsers() {
     let csrf = document
