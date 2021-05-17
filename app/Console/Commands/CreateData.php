@@ -47,7 +47,7 @@ class CreateData extends Command
      */
     public function handle()
     {
-        User::query()
+ /*        User::query()
         ->create([
             'name' => 'Jugador1',
             'email' => 'jugador1@gmail.com',
@@ -64,7 +64,7 @@ class CreateData extends Command
         Team::query()
         ->create([
             'name' => 'Los hackers',
-        ]);
+        ]); */
 
         Role::query()
         ->create([
@@ -76,13 +76,13 @@ class CreateData extends Command
             'name' => 'django',
         ]);
 
-        Game::query()
+/*         Game::query()
         ->create([
             'time' => '09:58:41',
             'finished' => true,
             'team_id' => 1,
             'itinerary' => 1,
-        ]);     
+        ]);    */  
         
         $data1way1 = ["html" => [
             'java' => '<img src="/images/scenes/Dark-Sala-de-actos.png" alt="Sala de actos Java" class="z-0 top-0 fixed w-full h-screen"><div class="flex flex-col justify-around items-center p-8 space-y-6"><div class="bg-white shadow-sm rounded-lg z-50 bg-opacity-80"><p class="p-5 italic z-10">Cuando llegas a la sala de actos, te encuentras con una sala vacía. No hay alumnos, ni profesor... Y vuestro amigo/a no ha llegado todavía. No sabes qué hacer y decides ponerte en contacto con Django para saber dónde está. Comentáis que los dos estáis en la sala de actos, pero... ¿Cómo podía ser eso posible si la única persona que había allí eras tú?</p></div><div class="bg-black py-12 px-3 rounded-xl z-10"><img src="/images/challenge1/Chat_java.png" width="400 alt="Chat Java"></div><div class="flex flex-col space-y-4 px-2 z-10"><input class="rounded-md shadow-sm border-gray-300 p-3 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Introduce el codigo" id="inputView1"><div class="flex space-x-12"><button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md" id="view1clue1">PISTA 1</button><button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md" id="view1clue2">PISTA 2</button><button class="text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 p-5 shadow-md" id="comproveView1">AVANZAR</button></div></div></div><script src="/js/page1.js"></script>',
@@ -236,7 +236,7 @@ class CreateData extends Command
             'itinerary' => 2,
         ]);
 
-        Itinerary::query()
+/*         Itinerary::query()
         ->create([
             'screen_id' => 1,
             'game_id' => 1,
@@ -272,6 +272,6 @@ class CreateData extends Command
             'user_id' => 2,
             'game_id' => 1,
             'role_id' => 2,
-        ]);
+        ]); */
     }
 }

@@ -97,6 +97,7 @@ Route::get('/end', function () {
 })->middleware(['auth'])->name('end');
 
 Route::resource('ranking', 'App\Http\Controllers\TeamController');
+
 Route::get('/logout', '\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 
 Route::post('/api/games', function (Request $request) {
