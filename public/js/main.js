@@ -1,10 +1,23 @@
-$(document).ready(function () {
-    $("#joinGame").click(function () {
-        getUsers().then(updatePlayers);
-    });
+function joinGame(val){
+    let csrf = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
 
-    
-});
+    let gameId = $("#game-id").val();
+    let userId = val;
+    fetch("api/joinGame/" + userId + "/" + gameId, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            "Accept": 'application/json',
+            "X-CSRF-TOKEN": csrf
+        }}).then(function(res) {
+            console.log("hola");
+            getUsers().then(updatePlayers);
+        }).catch(function(err) {
+          console.error(err)
+        });
+}
 
 function createGame(val){
     let csrf = document
@@ -24,31 +37,31 @@ function createGame(val){
         },
         success: function(res){
             $("#game-id").val(res['game_id']);
+            $("#game-id").attr("readonly", "true");
+            poll(function () {
+                return new Promise(function (resolve, reject) {
+                    getUsers().then((users) => {
+                        if (users && users.length > 1) {
+                            console.log("user joined!");
+                            updatePlayers(users);
+                            resolve(false);
+                        } else {
+                            console.log("no users joined yet!");
+                            // este return false hace que poll() vuelva a ejecutarse
+                            resolve(true);
+                        }
+                    });
+                });
+            }, 3000);
         }
     });
-    poll(function () {
-        return new Promise(function (resolve, reject) {
-            getUsers().then((users) => {
-                if (users && users.length > 1) {
-                    console.log("user joined!");
-                    updatePlayers(users);
-                    resolve(false);
-                } else {
-                    console.log("no users joined yet!");
-                    // este return false hace que poll() vuelva a ejecutarse
-                    resolve(true);
-                }
-            });
-        });
-    }, 3000);
 }
 
 function getUsers() {
     let csrf = document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
-    let id = document.getElementById("game-id").value;
-
+    let game_id = document.getElementById("game-id").value;
     return new Promise(function (resolve, reject) {
         fetch("/api/games", {
             method: "POST",
@@ -56,7 +69,7 @@ function getUsers() {
                 "Content-Type": "application/json",
                 "X-CSRF-TOKEN": csrf,
             },
-            body: JSON.stringify({ id }),
+            body: JSON.stringify({game_id}),
         })
             .then((response) => response.json())
             .then((users) => {
@@ -75,6 +88,9 @@ function updatePlayers(users) {
         userLi.innerHTML = user.name;
         players.appendChild(userLi);
     });
+    $("#startGame").removeClass("pointer-events-none");
+    $("#startGame").removeClass("opacity-60");
+    $("#startGame").attr("tabindex", 0);
 }
 
 function poll(callback, everyMs = 5000) {

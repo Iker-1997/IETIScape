@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
+use App\Http\Controllers\GameController;
 
 use App\Models\User;
 use App\Models\UsersTeam;
@@ -92,7 +92,7 @@ Route::get('/end', function () {
 });
 
 Route::post('/api/games', function (Request $request) {
-    $id = $request->input('id');
+    $id = $request->input('game_id');
     $users = DB::table('games')
     ->join('teams', 'games.team_id', '=', 'teams.id')
     ->join('users_teams', 'teams.id', '=', 'users_teams.team_id')
@@ -108,9 +108,14 @@ Route::get('/api/createGame/{id}/{teamName}', function (Request $request) {
         "id" => $request->route('id'),
         "teamName" => rawurldecode($request->route('teamName'))
     ]));
-    // crear un nuevo registro en tabla games
-    // recoger el id de la partida creada
-    // devolver el id
+});
+
+Route::get('/api/joinGame/{user_id}/{game_id}', function (Request $request) {
+    $team = new GameController;
+    return $team->store(json_encode([
+        "user_id" => $request->route('user_id'),
+        "game_id" => $request->route('game_id')
+    ]));
 });
 
 Route::resource('ranking', 'App\Http\Controllers\TeamController');
