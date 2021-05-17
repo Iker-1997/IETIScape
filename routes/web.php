@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 Route::get('/team', function () {
     return view('team');
-});
+})->middleware(['auth'])->name('team');
 
 Route::get('/election', function () {
     $teams = DB::table('teams')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', Auth::user()->id)->get();
@@ -41,11 +41,11 @@ Route::get('/election', function () {
     return view('election', [
         'team' => $team
     ]);
-});
+})->middleware(['auth'])->name('election');
 
 Route::get('/intro', function () {
     return view('intro');
-});
+})->middleware(['auth'])->name('intro');
 
 Route::get('/first', function () {
     $screen = Screen::select('data')->where('order',1)->inRandomOrder()->first();
@@ -53,7 +53,7 @@ Route::get('/first', function () {
        return view('first', [
         'data' => $data
     ]);
-});
+})->middleware(['auth'])->name('first');
 
 Route::get('/second', function () {
     $screen = Screen::select('data')->where('order',2)->inRandomOrder()->first();
@@ -61,7 +61,7 @@ Route::get('/second', function () {
        return view('second', [
         'data' => $data
     ]);
-});
+})->middleware(['auth'])->name('second');
 
 Route::get('/third', function () {
     $screen = Screen::select('data')->where('order',3)->inRandomOrder()->first();
@@ -69,7 +69,7 @@ Route::get('/third', function () {
         return view('third', [
         'data' => $data
     ]);
-});
+})->middleware(['auth'])->name('third');
 
 Route::get('/fourth', function () {
     $screen = Screen::select('data')->where('order',4)->inRandomOrder()->first();
@@ -77,7 +77,7 @@ Route::get('/fourth', function () {
         return view('fourth', [
         'data' => $data
     ]);
-});
+})->middleware(['auth'])->name('fourth');
 
 Route::get('/fifth', function () {
     $screen = Screen::select('data')->where('order',5)->inRandomOrder()->first();
@@ -85,11 +85,13 @@ Route::get('/fifth', function () {
         return view('fifth', [
         'data' => $data
     ]);
-});
+})->middleware(['auth'])->name('fifth');
 
 Route::get('/end', function () {
     return view('end');
-});
+})->middleware(['auth'])->name('end');
+
+Route::resource('ranking', 'App\Http\Controllers\TeamController');
 
 Route::post('/api/games', function (Request $request) {
     $id = $request->input('game_id');
@@ -117,7 +119,5 @@ Route::get('/api/joinGame/{user_id}/{game_id}', function (Request $request) {
         "game_id" => $request->route('game_id')
     ]));
 });
-
-Route::resource('ranking', 'App\Http\Controllers\TeamController');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
