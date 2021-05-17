@@ -5,11 +5,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\RoleController;
 
 use App\Models\User;
 use App\Models\UsersTeam;
 use App\Models\Screen;
 use App\Models\Game;
+use App\Models\RolesUsersGame;
+use App\Models\Roles;
 
 
 /*
@@ -35,10 +38,12 @@ Route::get('/team', function () {
 });
 
 Route::get('/election', function () {
-    $teams = DB::table('teams')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', Auth::user()->id)->get();
-    $team = json_decode($teams, true);
+
+    $user_id = Auth::user()->id;
+    $team = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('teams.name')->orderBy('users_teams.created_at', 'DESC')->first();
+    $team_name = $team->name;
     return view('election', [
-        'team' => $team
+        'team_name' => $team_name
     ]);
 });
 
@@ -114,6 +119,18 @@ Route::get('/api/joinGame/{user_id}/{game_id}', function (Request $request) {
     return $team->store(json_encode([
         "user_id" => $request->route('user_id'),
         "game_id" => $request->route('game_id')
+    ]));
+});
+
+Route::get('/api/assignRole/{user_id}/{role_id}', function (Request $request) {
+    $user_id = $request->route('user_id');
+    $game = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.id')->orderBy('users_teams.created_at', 'DESC')->first();
+    $game_id = $game->id;
+    $role = new RoleController;
+    return $role->update(json_encode([
+        "user_id" => $user_id,
+        "role_id" => $request->route('role_id'),
+        "game_id" => $game_id
     ]));
 });
 
