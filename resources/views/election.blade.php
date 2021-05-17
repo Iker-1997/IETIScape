@@ -1,9 +1,7 @@
 <x-app-layout>
     <div class="flex flex-col justify-center items-center">
         <div class="bg-white shadow-sm m-4 text-center mx-10">
-        @foreach($team as $team)
-            <h1 class="font-extrabold text-5xl pt-4">BIENVENIDOS A LA AVENTURA "<span>{{ $team['name'] }}</span>"</h1>
-        @endforeach
+            <h1 class="font-extrabold text-5xl pt-4">BIENVENIDOS A LA AVENTURA "<span>{{ $team_name }}</span>"</h1>
             <p class="p-4 font-semibold text-red-700">El tiempo ha comenzado a correr. Recordad que si escogeis los dos el mismo personaje, no podreis avanzar en la historia</p>
         </div>
         <div class="bg-white shadow-sm m-4 mx-10">
@@ -17,7 +15,7 @@
                         <div>
                             <p class="italic">Java, que normalmente impone sus propias reglas, decide que la mejor opción para que no les pillen es entrar por la puerta lateral, que prácticamente nunca se abre.</p>
                         </div>
-                        <a href="" class="self-center w-7/12 text-center px-10 bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-2 shadow-md">Quiero ser Java</a>
+                        <button onclick="wannaBeJava('{{Auth::user()->id}}')" class="self-center w-7/12 text-center px-10 bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-2 shadow-md">Quiero ser Java</button>
                     </div>
                 </div>
             </div>
@@ -28,7 +26,7 @@
                         <div>
                             <p class="italic">Django, por el contrario, no se anda con rodeos y prefiere entrar por la puerta principal para ahorrarse más problemas en un futuro.</p>
                         </div>
-                        <a href="" class="self-center w-7/12 text-center px-10 bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-2 shadow-md">Quiero ser Django</a>
+                        <button onclick="wannaBeDjango('{{Auth::user()->id}}')" class="self-center w-7/12 text-center px-10 bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-2 shadow-md">Quiero ser Django</button>
                     </div>
                 </div>
             </div>

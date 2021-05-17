@@ -12,10 +12,9 @@ function joinGame(val){
             "Accept": 'application/json',
             "X-CSRF-TOKEN": csrf
         }}).then(function(res) {
-            console.log("hola");
             getUsers().then(updatePlayers);
         }).catch(function(err) {
-          console.error(err)
+            console.error(err)
         });
 }
 
@@ -106,4 +105,40 @@ function poll(callback, everyMs = 5000) {
             }, everyMs);
         });
     }
+}
+
+function wannaBeJava(val){
+    let csrf = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+    let userId = val;
+    fetch("/api/assignRole/" + userId + "/1", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            "Accept": 'application/json',
+            "X-CSRF-TOKEN": csrf
+        }}).then(function(res) {
+            location.href = "/intro";
+        }).catch(function(err) {
+            console.error(err);
+        });
+}
+
+function wannaBeDjango(val){
+    let csrf = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+    let userId = val;
+    fetch("/api/assignRole/" + userId + "/2", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            "Accept": 'application/json',
+            "X-CSRF-TOKEN": csrf
+        }}).then(function(res) {
+            location.href = "/intro";
+        }).catch(function(err) {
+            console.error(err);
+        });
 }
