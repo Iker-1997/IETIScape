@@ -23,7 +23,6 @@ class GameController extends Controller
 
         $team = DB::table('games')->where('id', $game_id)->select('team_id')->get();
         $team_id = $team[0]->team_id;
-        error_log(print_r($team_id));
         if ($team_id != null){
             $team = DB::table('users_teams')->insert([
                 'user_id' => $user_id,
@@ -31,7 +30,6 @@ class GameController extends Controller
                 'created_at' => date("Y-m-d H:i:s", strtotime('now')),
                 'updated_at' => date("Y-m-d H:i:s", strtotime('now'))
             ]);
-            error_log(print_r($team));
             return response()->json(["status" => "success", "message" => "Success! user joined"]);
         }else{
             return response()->json(["status" => "failed", "message" => "Alert! user not joined"]);
