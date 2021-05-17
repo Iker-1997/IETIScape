@@ -53,14 +53,14 @@
                 @if (Route::has('login'))
                     @auth
                     <ul class="list-disc list-inside">
-                        <li>Buscad una forma de manteneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... Algo que sea fácil y rápido para mantener una conversación fluida.</li>
+                        <li>Buscad un método para poneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... La mejor manera para poder mantener una conversación fluida y sin inconvenientes.</li>
                         <li>Pulsa "Entrar" para continuar y crear una partida.</li>
                     </ul>
                     @else
                     <ul class="list-disc list-inside">
-                        <li>Uno de los dos jugadores tiene que iniciar sesión en la página.</li>
-                        <li>Si este no tiene ninguna cuenta creada, por favor, ve a "REGISTRARSE" para crear una.</li>
-                        <li>Buscad una forma de manteneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... Algo que sea fácil y rápido para mantener una conversación fluida.</li>
+                        <li>Los dos jugadores/as deberéis "INICIAR SESIÓN" en la página.</li>
+                        <li>Si alguno/a todavía no tiene ninguna cuenta creada, por favor, que se dirija a "REGISTRARSE" para crear una.</li>
+                        <li>Buscad un método para poneros en contacto: chat de voz, videollamada, notas de voz, mensajes de humo... La mejor manera para poder mantener una conversación fluida y sin inconvenientes.</li>
                     </ul>
                     @endauth
                 @endif
