@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
 
 use App\Models\User;
 use App\Models\UsersTeam;
@@ -112,3 +114,5 @@ Route::get('/api/createGame/{id}/{teamName}', function (Request $request) {
 });
 
 Route::resource('ranking', 'App\Http\Controllers\TeamController');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
