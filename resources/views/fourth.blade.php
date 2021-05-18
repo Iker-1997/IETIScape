@@ -1,12 +1,19 @@
 <x-app-layout>
-    @foreach($data as $d)
+    @if($role == "java")
         <script>
+            let datos = <?php print_r($data['data']); ?>; 
             $(document).ready(function(){
-                let datos = <?php print_r($d); ?>; 
-                $("main").html(datos["html"]["django"]);
+                $("main").html(datos['html']["java"]);
             });
         </script>
-    @endforeach   
+    @else
+        <script>
+            let datos = <?php print_r($data['data']); ?>;
+            $(document).ready(function(){
+                $("main").html(datos['html']["django"]);
+            });
+        </script>
+    @endif
     {{--
     <!-- <img src='{{asset("images/scenes/Pasillo-Django.jpg")}}' alt='Pasillo Django' class='z-0 top-0 fixed w-full h-screen'>
     <div class='flex flex-col justify-center items-center p-4'>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\RoleController;
 
@@ -35,7 +36,7 @@ Route::get('/', function () {
 
 Route::get('/team', function () {
     return view('team');
-});
+})->middleware(['auth'])->name('team');
 
 Route::get('/election', function () {
 
@@ -45,55 +46,147 @@ Route::get('/election', function () {
     return view('election', [
         'team_name' => $team_name
     ]);
-});
+})->middleware(['auth'])->name('election');
 
 Route::get('/intro', function () {
-    return view('intro');
-});
+
+    $user_id = Auth::user()->id;
+    $role = DB::table('games')
+        ->join('roles_users_games', 'games.id', '=', 'roles_users_games.game_id')
+        ->join('roles', 'roles.id', '=', 'roles_users_games.role_id')
+        ->where('roles_users_games.user_id', $user_id)
+        ->select('roles.name')
+        ->orderBy('roles_users_games.created_at', 'DESC')->first();
+    $role_name = $role->name;
+    
+    return view('intro', [
+        'role' => $role_name
+    ]);
+})->middleware(['auth'])->name('intro');
 
 Route::get('/first', function () {
-    $screen = Screen::select('data')->where('order',1)->inRandomOrder()->first();
-    $data = json_decode($screen, true);
-       return view('first', [
-        'data' => $data
+
+    $user_id = Auth::user()->id;
+
+    $role = DB::table('games')
+        ->join('roles_users_games', 'games.id', '=', 'roles_users_games.game_id')
+        ->join('roles', 'roles.id', '=', 'roles_users_games.role_id')
+        ->where('roles_users_games.user_id', $user_id)
+        ->select('roles.name')
+        ->orderBy('roles_users_games.created_at', 'DESC')->first();
+    $role_name = $role->name;
+
+    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+    $itinerary_num = $itinerary->itinerary;
+    
+    $screen = Screen::select('data')->where('order',1)->where('itinerary', $itinerary_num)->get();
+    $screen_data = $screen[0];
+    $data = json_decode($screen_data, true);
+    return view('first', [
+        'data' => $data,
+        'role' => $role_name
     ]);
-});
+})->middleware(['auth'])->name('first');
 
 Route::get('/second', function () {
-    $screen = Screen::select('data')->where('order',2)->inRandomOrder()->first();
-    $data = json_decode($screen, true);
-       return view('second', [
-        'data' => $data
+
+    $user_id = Auth::user()->id;
+
+    $role = DB::table('games')
+        ->join('roles_users_games', 'games.id', '=', 'roles_users_games.game_id')
+        ->join('roles', 'roles.id', '=', 'roles_users_games.role_id')
+        ->where('roles_users_games.user_id', $user_id)
+        ->select('roles.name')
+        ->orderBy('roles_users_games.created_at', 'DESC')->first();
+    $role_name = $role->name;
+
+    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+    $itinerary_num = $itinerary->itinerary;
+    
+    $screen = Screen::select('data')->where('order',2)->where('itinerary', $itinerary_num)->get();
+    $screen_data = $screen[0];
+    $data = json_decode($screen_data, true);
+    return view('second', [
+        'data' => $data,
+        'role' => $role_name
     ]);
-});
+})->middleware(['auth'])->name('second');
 
 Route::get('/third', function () {
-    $screen = Screen::select('data')->where('order',3)->inRandomOrder()->first();
-    $data = json_decode($screen, true);
-        return view('third', [
-        'data' => $data
+    $user_id = Auth::user()->id;
+
+    $role = DB::table('games')
+        ->join('roles_users_games', 'games.id', '=', 'roles_users_games.game_id')
+        ->join('roles', 'roles.id', '=', 'roles_users_games.role_id')
+        ->where('roles_users_games.user_id', $user_id)
+        ->select('roles.name')
+        ->orderBy('roles_users_games.created_at', 'DESC')->first();
+    $role_name = $role->name;
+
+    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+    $itinerary_num = $itinerary->itinerary;
+    
+    $screen = Screen::select('data')->where('order',3)->where('itinerary', $itinerary_num)->get();
+    $screen_data = $screen[0];
+    $data = json_decode($screen_data, true);
+    return view('third', [
+        'data' => $data,
+        'role' => $role_name
     ]);
-});
+})->middleware(['auth'])->name('third');
 
 Route::get('/fourth', function () {
-    $screen = Screen::select('data')->where('order',4)->inRandomOrder()->first();
-    $data = json_decode($screen, true);
-        return view('fourth', [
-        'data' => $data
+    $user_id = Auth::user()->id;
+
+    $role = DB::table('games')
+        ->join('roles_users_games', 'games.id', '=', 'roles_users_games.game_id')
+        ->join('roles', 'roles.id', '=', 'roles_users_games.role_id')
+        ->where('roles_users_games.user_id', $user_id)
+        ->select('roles.name')
+        ->orderBy('roles_users_games.created_at', 'DESC')->first();
+    $role_name = $role->name;
+
+    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+    $itinerary_num = $itinerary->itinerary;
+    
+    $screen = Screen::select('data')->where('order',4)->where('itinerary', $itinerary_num)->get();
+    $screen_data = $screen[0];
+    $data = json_decode($screen_data, true);
+    return view('fourth', [
+        'data' => $data,
+        'role' => $role_name
     ]);
-});
+})->middleware(['auth'])->name('fourth');
 
 Route::get('/fifth', function () {
-    $screen = Screen::select('data')->where('order',5)->inRandomOrder()->first();
-    $data = json_decode($screen, true);
-        return view('fifth', [
-        'data' => $data
+    $user_id = Auth::user()->id;
+
+    $role = DB::table('games')
+        ->join('roles_users_games', 'games.id', '=', 'roles_users_games.game_id')
+        ->join('roles', 'roles.id', '=', 'roles_users_games.role_id')
+        ->where('roles_users_games.user_id', $user_id)
+        ->select('roles.name')
+        ->orderBy('roles_users_games.created_at', 'DESC')->first();
+    $role_name = $role->name;
+
+    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+    $itinerary_num = $itinerary->itinerary;
+    
+    $screen = Screen::select('data')->where('order',5)->where('itinerary', $itinerary_num)->get();
+    $screen_data = $screen[0];
+    $data = json_decode($screen_data, true);
+    return view('fifth', [
+        'data' => $data,
+        'role' => $role_name
     ]);
-});
+})->middleware(['auth'])->name('fifth');
 
 Route::get('/end', function () {
     return view('end');
-});
+})->middleware(['auth'])->name('end');
+
+Route::resource('ranking', 'App\Http\Controllers\TeamController');
+Route::get('/logout', '\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 
 Route::post('/api/games', function (Request $request) {
     $id = $request->input('game_id');
@@ -133,5 +226,3 @@ Route::get('/api/assignRole/{user_id}/{role_id}', function (Request $request) {
         "game_id" => $game_id
     ]));
 });
-
-Route::resource('ranking', 'App\Http\Controllers\TeamController');

@@ -45,17 +45,32 @@ class TeamController extends Controller
             'updated_at' => date("Y-m-d H:i:s", strtotime('now'))
         ]);
 
-        $game_itinerary = rand(1,2);
+        $game_itinerary_rand = rand(1,2);
 
         $game = DB::table('games')->insert([
             'team_id' => $team_id,
-            'itinerary' => $game_itinerary,
+            'itinerary' => $game_itinerary_rand,
             'created_at' => date("Y-m-d H:i:s", strtotime('now')),
             'updated_at' => date("Y-m-d H:i:s", strtotime('now'))
         ]);
 
         if($game == 1) {
             $game_id = DB::getPDO()->lastInsertId();
+
+            $game_itinerary_array = DB::table('games')->select('itinerary')->where('id', $game_id)->get();
+            $game_itinerary = $game_itinerary_array[0]->itinerary;
+
+            $screens = DB::table('screens')->select('id')->where('itinerary', $game_itinerary)->get();
+
+            foreach ($screens as $screen){
+                $itinerary = DB::table('itineraries')->insert([
+                    'screen_id' => $screen->id,
+                    'game_id' => $game_id,
+                    'created_at' => date("Y-m-d H:i:s", strtotime('now')),
+                    'updated_at' => date("Y-m-d H:i:s", strtotime('now'))
+                ]);
+            }
+
             return response()->json(["status" => "success", "message" => "Success! team and game created", "game_id" => $game_id]);
         }else {
             return response()->json(["status" => "failed", "message" => "Alert! term not created"]);

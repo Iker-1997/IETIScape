@@ -1,12 +1,21 @@
 <x-app-layout>
-    @foreach($data as $d)
+    @if($role == "java")
         <script>
+            let role = "{{$role}}";
+            let datos = <?php print_r($data['data']); ?>; 
             $(document).ready(function(){
-                let datos = <?php print_r($d); ?>; 
-                $("main").html(datos["html"]["django"]);
+                $("main").html(datos['html']["java"]);
             });
         </script>
-    @endforeach   
+    @else
+        <script>
+            let role = "{{$role}}";
+            let datos = <?php print_r($data['data']); ?>;
+            $(document).ready(function(){
+                $("main").html(datos['html']["django"]);
+            });
+        </script>
+    @endif
     {{--
     <!-- <img src="{{asset('images/challenge5/django2.png')}}" alt="Lavabo Java" class="z-0 top-0 fixed w-full h-screen">
     <div class="flex flex-col justify-between items-center p-4 h-screen">
