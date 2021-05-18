@@ -5,7 +5,9 @@ IETI Escape Room es un proyecto realizado como trabajo de final de grado por est
 Desde el directorio donde quieras alojar el proyecto, ejecuta los siguientes comandos:
 ```
 - git clone https://github.com/Iker-1997/IETIScape.git
+- cd "Directorio"
 - cp .env.example .env
+- composer install
 - php artisan key:generate
 - php artisan createdata (para añadir registros de prueba en la base de datos)
 - php artisan serve
