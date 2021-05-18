@@ -49,7 +49,7 @@
                     <p class="font-semibold text-xl text-center">Nº de Jugadores: 2</p>
                     <p class="font-semibold text-xl text-center">Duración: 60-90 minutos</p>
                     <br>
-                    <p class="text-center">Para jugar simplemente necesitarás un ordenador con conexión a internet, un compañero/a con el/la que compartir la experiencia y seguir las siguientes indicaciones:</p>
+                    <p class="text-center">Para jugar simplemente necesitarás un <b>ordenador</b> con conexión a internet, <b>papel y lápiz</b> para ayudarte con las pruebas, un <b>compañero/a</b> con el/la que compartir la experiencia y seguir las siguientes <b>indicaciones</b>:</p>
                     <br>
                 @if (Route::has('login'))
                     @auth
