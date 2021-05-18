@@ -37,6 +37,9 @@ function createGame(val){
         success: function(res){
             $("#game-id").val(res['game_id']);
             $("#game-id").attr("readonly", "true");
+            $("#joinGame").addClass("pointer-events-none");
+            $("#joinGame").addClass("opacity-60");
+            $("#joinGame").attr("tabindex", -1);
             poll(function () {
                 return new Promise(function (resolve, reject) {
                     getUsers().then((users) => {
