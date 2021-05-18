@@ -1,12 +1,19 @@
 <x-app-layout>
-    @foreach($data as $d)
+    @if($role == "java")
         <script>
+            let datos = <?php print_r($data['data']); ?>; 
             $(document).ready(function(){
-                let datos = <?php print_r($d); ?>; 
-                $("main").html(datos["html"]["django"]);
+                $("main").html(datos['html']["java"]);
             });
         </script>
-    @endforeach   
+    @else
+        <script>
+            let datos = <?php print_r($data['data']); ?>;
+            $(document).ready(function(){
+                $("main").html(datos['html']["django"]);
+            });
+        </script>
+    @endif 
     {{--<!-- <img src='{{asset("images/scenes/Puerta-despacho-Java.png")}}' alt='Puerta despacho Django' class='z-0 top-0 fixed w-full h-screen'>
     <div id='felpudo' class='hidden absolute overflow-hidden w-full min-h-screen z-50 px-32 py-12 bg-black bg-opacity-80'>
         <img src='/images/challenge2/java1.png' alt='Felpudo' class='w-8/12 mx-auto'>
