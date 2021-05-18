@@ -37,6 +37,9 @@ function createGame(val){
         success: function(res){
             $("#game-id").val(res['game_id']);
             $("#game-id").attr("readonly", "true");
+            $("#joinGame").addClass("pointer-events-none");
+            $("#joinGame").addClass("opacity-60");
+            $("#joinGame").attr("tabindex", -1);
             poll(function () {
                 return new Promise(function (resolve, reject) {
                     getUsers().then((users) => {
@@ -78,18 +81,22 @@ function getUsers() {
 }
 
 function updatePlayers(users) {
+    let numUsers = 0;
     const players = document.getElementById("players");
     while (players.firstChild) {
         players.removeChild(players.firstChild);
     }
     users.forEach((user) => {
+        numUsers += 1;
         const userLi = document.createElement("li");
         userLi.innerHTML = user.name;
         players.appendChild(userLi);
     });
-    $("#startGame").removeClass("pointer-events-none");
-    $("#startGame").removeClass("opacity-60");
-    $("#startGame").attr("tabindex", 0);
+    if(numUsers > 1){
+        $("#startGame").removeClass("pointer-events-none");
+        $("#startGame").removeClass("opacity-60");
+        $("#startGame").attr("tabindex", 0);
+    }
 }
 
 function poll(callback, everyMs = 5000) {
