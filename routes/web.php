@@ -64,7 +64,7 @@ Route::get('/intro', function () {
     ]);
 })->middleware(['auth'])->name('intro');
 
-Route::get('/first', function () {
+Route::get('/point', function () {
 
     $user_id = Auth::user()->id;
 
@@ -88,7 +88,7 @@ Route::get('/first', function () {
     ]);
 })->middleware(['auth'])->name('first');
 
-Route::get('/second', function () {
+Route::get('/where', function () {
 
     $user_id = Auth::user()->id;
 
@@ -112,7 +112,7 @@ Route::get('/second', function () {
     ]);
 })->middleware(['auth'])->name('second');
 
-Route::get('/third', function () {
+Route::get('/job', function () {
     $user_id = Auth::user()->id;
 
     $role = DB::table('games')
@@ -135,7 +135,7 @@ Route::get('/third', function () {
     ]);
 })->middleware(['auth'])->name('third');
 
-Route::get('/fourth', function () {
+Route::get('/search', function () {
     $user_id = Auth::user()->id;
 
     $role = DB::table('games')
@@ -158,7 +158,7 @@ Route::get('/fourth', function () {
     ]);
 })->middleware(['auth'])->name('fourth');
 
-Route::get('/fifth', function () {
+Route::get('/mirror', function () {
     $user_id = Auth::user()->id;
 
     $role = DB::table('games')

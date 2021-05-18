@@ -32,7 +32,7 @@ $(document).ready(function () {
         let solution = datos['solution'];
         solution = solution.toUpperCase();
         if(answer == solution){
-            location.href = "/fourth";
+            location.href = "/search";
         }else{
             alert("RESPUESTA INCORRECTA");
         }

@@ -24,7 +24,7 @@ $(document).ready(function () {
         let solution = datos['solution'];
         solution = solution.toUpperCase();
         if(answer == solution){
-            location.href = "/third";
+            location.href = "/job";
         }else{
             alert("RESPUESTA INCORRECTA");
         }

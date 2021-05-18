@@ -14,7 +14,7 @@ $(document).ready(function () {
         let solution = datos['solution'];
         solution = solution.toUpperCase();
         if(answer == solution){
-            location.href = "/fifth";
+            location.href = "/mirror";
         }else{
             alert("RESPUESTA INCORRECTA");
         }

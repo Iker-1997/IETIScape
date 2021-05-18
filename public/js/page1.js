@@ -12,7 +12,7 @@ $(document).ready(function(){
         let answer = $("#inputView1").val();
         answer = answer.toUpperCase();
         if(answer == datos['solution']){
-            location.href = "/second";
+            location.href = "/where";
         }else{
             alert("RESPUESTA INCORRECTA");
         }
