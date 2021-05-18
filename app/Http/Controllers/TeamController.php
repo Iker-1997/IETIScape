@@ -15,7 +15,7 @@ class TeamController extends Controller
     {        
         $name = $request->get('name');
 
-        $data = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->select('games.time', 'teams.name')->orderBy('games.time', 'ASC')->get();
+        $data = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->select('games.time', 'teams.name')->where('finished', 1)->orderBy('games.time', 'ASC')->get();
         $num = $data->count();
         return view('ranking', ['data'=> $data, 'num'=> $num]);
     }
