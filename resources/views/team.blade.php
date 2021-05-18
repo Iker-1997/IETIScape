@@ -47,7 +47,7 @@
                         <br>
                         <ul class="list-disc list-inside">
                             <li><b>Si tu compañero/a es quien crea la partida</b>, tú solamente deberás introducir en el campo "invitación" el código que te haga llegar y seleccionar "UNIRSE A LA PARTIDA".</li>
-                            <li><b>Si por el contrario eres tú quien crea la partida</b>, deberás introducir el "nombre de equipo" y seleccionar "Crear partida". En ese momento aparecerá un número en el campo "CÓDIGO", que tendrás que comunicar al otro/a jugador/a para que se pueda unir a tu partida.</li>
+                            <li><b>Si por el contrario eres tú quien crea la partida</b>, deberás introducir el "nombre de equipo" y seleccionar "CREAR PARTIDA". En ese momento aparecerá un número en el campo "INVITACIÓN", que tendrás que comunicar al otro/a jugador/a para que se pueda unir a tu partida.</li>
                         </ul>
                         <br>
                         <p>Cuando estéis tod@s dentro, podreís "EMPEZAR".</p>
