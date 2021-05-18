@@ -1,12 +1,19 @@
 <x-app-layout>
-    @foreach($data as $d)
+    @if($role == "java")
         <script>
+            let datos = <?php print_r($data['data']); ?>; 
             $(document).ready(function(){
-                let datos = <?php print_r($d); ?>; 
-                $("main").html(datos["html"]["django"]);
+                $("main").html(datos['html']["java"]);
             });
         </script>
-    @endforeach   
+    @else
+        <script>
+            let datos = <?php print_r($data['data']); ?>;
+            $(document).ready(function(){
+                $("main").html(datos['html']["django"]);
+            });
+        </script>
+    @endif
     {{--
     <!-- <img src='{{asset("images/scenes/Despacho-Java1.png")}}' alt='Despacho Java' class='z-0 top-0 fixed w-full h-screen'>
     <div id='periodico' class='w-full hidden absolute overflow-hidden z-50 px-32 py-12 bg-black bg-opacity-80'>
