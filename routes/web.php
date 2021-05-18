@@ -227,3 +227,15 @@ Route::get('/api/assignRole/{user_id}/{role_id}', function (Request $request) {
         "game_id" => $game_id
     ]));
 });
+
+Route::get('/api/endGame', function (Request $request) {
+    
+    $user_id = Auth::user()->id;
+    $game = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.id')->orderBy('users_teams.created_at', 'DESC')->first();
+    $game_id = $game->id;
+
+    $team = new GameController;
+    return $team->update(json_encode([
+        "game_id" => $game_id
+    ]));
+});

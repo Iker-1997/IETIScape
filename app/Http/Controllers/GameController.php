@@ -35,4 +35,29 @@ class GameController extends Controller
             return response()->json(["status" => "failed", "message" => "Alert! user not joined"]);
         }
     }
+
+    public function update($info)
+    {
+        // Decode the JSON data
+        $datos = json_decode($info, true);
+        $gameid = $datos['game_id'];
+
+        // Insert the new data into the table
+        $find_time = DB::table('games')->select("created_at")->where('id', $gameid)->get();
+        $time_start = $find_time[0]->created_at;
+
+        $game_time = date("Y-m-d H:i:s", strtotime('now') - strtotime($time_start));
+
+        $game = DB::table('games')->where('id', $gameid)->update([
+            'time' => $game_time,
+            'finished' => true,
+            'updated_at' => date("Y-m-d H:i:s", strtotime('now'))
+        ]);
+
+        if ($game == 1){
+            return response()->json(["status" => "success", "message" => "Success! game ended"]);
+        }else{
+            return response()->json(["status" => "failed", "message" => "Alert! game not ended"]);
+        }
+    }
 }
