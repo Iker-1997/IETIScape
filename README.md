@@ -6,9 +6,8 @@ Desde el directorio donde quieras alojar el proyecto, ejecuta los siguientes com
 ```
 - crear DB
 - git clone https://github.com/Iker-1997/IETIScape.git
-- cd "Directorio"
-- cp .env.example .env
-  Modificar .env per afegir la teva DB
+- cd "Directorio" (Directorio creado al hacer git clone)
+- cp .env.example .env (Modificar .env para añadir tu DB)
 - composer install
 - php artisan key:generate
 - php artisan migrate
