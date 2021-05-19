@@ -42,10 +42,16 @@ Route::get('/election', function () {
 
     $user_id = Auth::user()->id;
     $team = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('teams.name')->orderBy('users_teams.created_at', 'DESC')->first();
-    $team_name = $team->name;
-    return view('election', [
-        'team_name' => $team_name
-    ]);
+
+    if ($team != null){
+        $team_name = $team->name;
+        return view('election', [
+            'team_name' => $team_name
+        ]);
+    }else{
+        return redirect('/team');
+    }
+    
 })->middleware(['auth'])->name('election');
 
 Route::get('/intro', function () {
@@ -57,11 +63,17 @@ Route::get('/intro', function () {
         ->where('roles_users_games.user_id', $user_id)
         ->select('roles.name')
         ->orderBy('roles_users_games.created_at', 'DESC')->first();
-    $role_name = $role->name;
+
+    if ($role != null){
+        $role_name = $role->name;
+        return view('intro', [
+            'role' => $role_name
+        ]);
+    }else{
+        return redirect('/team');
+    }
+
     
-    return view('intro', [
-        'role' => $role_name
-    ]);
 })->middleware(['auth'])->name('intro');
 
 Route::get('/point', function () {
@@ -74,18 +86,26 @@ Route::get('/point', function () {
         ->where('roles_users_games.user_id', $user_id)
         ->select('roles.name')
         ->orderBy('roles_users_games.created_at', 'DESC')->first();
-    $role_name = $role->name;
 
-    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
-    $itinerary_num = $itinerary->itinerary;
-    
-    $screen = Screen::select('data')->where('order',1)->where('itinerary', $itinerary_num)->get();
-    $screen_data = $screen[0];
-    $data = json_decode($screen_data, true);
-    return view('first', [
-        'data' => $data,
-        'role' => $role_name
-    ]);
+    if ($role != null){
+
+        $role_name = $role->name;
+
+        $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+        $itinerary_num = $itinerary->itinerary;
+        
+        $screen = Screen::select('data')->where('order',1)->where('itinerary', $itinerary_num)->get();
+        $screen_data = $screen[0];
+        $data = json_decode($screen_data, true);
+        return view('first', [
+            'data' => $data,
+            'role' => $role_name
+        ]);
+
+    }else{
+        return redirect('/team');
+    }
+
 })->middleware(['auth'])->name('first');
 
 Route::get('/where', function () {
@@ -98,19 +118,27 @@ Route::get('/where', function () {
         ->where('roles_users_games.user_id', $user_id)
         ->select('roles.name')
         ->orderBy('roles_users_games.created_at', 'DESC')->first();
-    $role_name = $role->name;
 
-    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
-    $itinerary_num = $itinerary->itinerary;
-    
-    $screen = Screen::select('data')->where('order',2)->where('itinerary', $itinerary_num)->get();
-    $screen_data = $screen[0];
-    $data = json_decode($screen_data, true);
-    return view('second', [
-        'data' => $data,
-        'role' => $role_name
-    ]);
-})->middleware(['auth'])->name('second');
+    if ($role != null){
+
+        $role_name = $role->name;
+
+        $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+        $itinerary_num = $itinerary->itinerary;
+        
+        $screen = Screen::select('data')->where('order',2)->where('itinerary', $itinerary_num)->get();
+        $screen_data = $screen[0];
+        $data = json_decode($screen_data, true);
+        return view('first', [
+            'data' => $data,
+            'role' => $role_name
+        ]);
+        
+    }else{
+        return redirect('/team');
+    }
+
+})->middleware(['auth'])->name('first');
 
 Route::get('/job', function () {
     $user_id = Auth::user()->id;
@@ -121,19 +149,27 @@ Route::get('/job', function () {
         ->where('roles_users_games.user_id', $user_id)
         ->select('roles.name')
         ->orderBy('roles_users_games.created_at', 'DESC')->first();
-    $role_name = $role->name;
 
-    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
-    $itinerary_num = $itinerary->itinerary;
-    
-    $screen = Screen::select('data')->where('order',3)->where('itinerary', $itinerary_num)->get();
-    $screen_data = $screen[0];
-    $data = json_decode($screen_data, true);
-    return view('third', [
-        'data' => $data,
-        'role' => $role_name
-    ]);
-})->middleware(['auth'])->name('third');
+    if ($role != null){
+
+        $role_name = $role->name;
+
+        $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+        $itinerary_num = $itinerary->itinerary;
+        
+        $screen = Screen::select('data')->where('order',3)->where('itinerary', $itinerary_num)->get();
+        $screen_data = $screen[0];
+        $data = json_decode($screen_data, true);
+        return view('first', [
+            'data' => $data,
+            'role' => $role_name
+        ]);
+        
+    }else{
+        return redirect('/team');
+    }
+
+})->middleware(['auth'])->name('first');
 
 Route::get('/search', function () {
     $user_id = Auth::user()->id;
@@ -144,19 +180,27 @@ Route::get('/search', function () {
         ->where('roles_users_games.user_id', $user_id)
         ->select('roles.name')
         ->orderBy('roles_users_games.created_at', 'DESC')->first();
-    $role_name = $role->name;
-
-    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
-    $itinerary_num = $itinerary->itinerary;
     
-    $screen = Screen::select('data')->where('order',4)->where('itinerary', $itinerary_num)->get();
-    $screen_data = $screen[0];
-    $data = json_decode($screen_data, true);
-    return view('fourth', [
-        'data' => $data,
-        'role' => $role_name
-    ]);
-})->middleware(['auth'])->name('fourth');
+    if ($role != null){
+
+        $role_name = $role->name;
+
+        $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+        $itinerary_num = $itinerary->itinerary;
+        
+        $screen = Screen::select('data')->where('order',4)->where('itinerary', $itinerary_num)->get();
+        $screen_data = $screen[0];
+        $data = json_decode($screen_data, true);
+        return view('first', [
+            'data' => $data,
+            'role' => $role_name
+        ]);
+        
+    }else{
+        return redirect('/team');
+    }
+
+})->middleware(['auth'])->name('first');
 
 Route::get('/mirror', function () {
     $user_id = Auth::user()->id;
@@ -167,18 +211,25 @@ Route::get('/mirror', function () {
         ->where('roles_users_games.user_id', $user_id)
         ->select('roles.name')
         ->orderBy('roles_users_games.created_at', 'DESC')->first();
-    $role_name = $role->name;
 
-    $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
-    $itinerary_num = $itinerary->itinerary;
-    
-    $screen = Screen::select('data')->where('order',5)->where('itinerary', $itinerary_num)->get();
-    $screen_data = $screen[0];
-    $data = json_decode($screen_data, true);
-    return view('fifth', [
-        'data' => $data,
-        'role' => $role_name
-    ]);
+    if ($role != null){
+
+        $role_name = $role->name;
+
+        $itinerary = DB::table('games')->join('teams', 'games.team_id', '=', 'teams.id')->join('users_teams', 'teams.id', '=', 'users_teams.team_id')->where('users_teams.user_id', $user_id)->select('games.itinerary')->orderBy('users_teams.created_at', 'DESC')->first();
+        $itinerary_num = $itinerary->itinerary;
+        
+        $screen = Screen::select('data')->where('order',5)->where('itinerary', $itinerary_num)->get();
+        $screen_data = $screen[0];
+        $data = json_decode($screen_data, true);
+        return view('fifth', [
+            'data' => $data,
+            'role' => $role_name
+        ]);
+        
+    }else{
+        return redirect('/team');
+    }
 })->middleware(['auth'])->name('fifth');
 
 Route::get('/end', function () {
