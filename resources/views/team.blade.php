@@ -65,6 +65,7 @@
                             <x-label class="block pb-1 text-shadow">Invitación:</x-label>
                             <x-input type="number" id='game-id' class="block border-2 shadow p-3" placeholder="Código">
                             </x-input>
+                            <span id="spanJoin" class="text-red-600"></span>
                             <button id="joinGame" onclick='joinGame("{{Auth::user()->id}}")' class="self-center text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-3 px-6 shadow-md">Unirse a partida
                             </button>
 
@@ -72,6 +73,7 @@
                             <x-label class="block pb-1 text-shadow">Nombre de equipo:</x-label>
                             <x-input class="block border-2 shadow p-3" id="teamName" placeholder="Introducir nombre">
                             </x-input>
+                            <span id="spanCreate" class="text-red-600"></span>
                             <button onclick='createGame("{{Auth::user()->id}}")' id='createGame' class="self-center text-center bg-gray-800 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 block p-3 px-10 shadow-md">Crear partida
                             </button>
                         </div>

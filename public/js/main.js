@@ -1,62 +1,75 @@
 function joinGame(val){
-    let csrf = document
-        .querySelector('meta[name="csrf-token"]')
-        .getAttribute("content");
-
     let gameId = $("#game-id").val();
-    let userId = val;
-    fetch("api/joinGame/" + userId + "/" + gameId, {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-            "Accept": 'application/json',
-            "X-CSRF-TOKEN": csrf
-        }}).then(function(res) {
-            getUsers().then(updatePlayers);
-        }).catch(function(err) {
-            console.error(err)
-        });
+
+    if(gameId == ""){
+        $("#spanJoin").text("El valor está vacio. Rellena el campo.");
+    }else{
+        $("#spanJoin").text("");
+        $("#spanCreate").text("");
+        let csrf = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        let userId = val;
+        fetch("api/joinGame/" + userId + "/" + gameId, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json',
+                "X-CSRF-TOKEN": csrf
+            }}).then(function(res) {
+                getUsers().then(updatePlayers);
+            }).catch(function(err) {
+                console.error(err)
+            });
+    }
 }
 
 function createGame(val){
-    let csrf = document
-        .querySelector('meta[name="csrf-token"]')
-        .getAttribute("content");
     let teamName = $("#teamName").val();
-    $.ajax({
-        url: "api/createGame/"+val+"/"+teamName,
-        method: "GET",
-        crossDomain : true,
-        accepts: "application/json",
-        dataType: 'json',
-        headers: {
-            'Content-Type': 'application/json',
-            "Accept": 'application/json',
-            "X-CSRF-TOKEN": csrf
-        },
-        success: function(res){
-            $("#game-id").val(res['game_id']);
-            $("#game-id").attr("readonly", "true");
-            $("#joinGame").addClass("pointer-events-none");
-            $("#joinGame").addClass("opacity-60");
-            $("#joinGame").attr("tabindex", -1);
-            poll(function () {
-                return new Promise(function (resolve, reject) {
-                    getUsers().then((users) => {
-                        if (users && users.length > 1) {
-                            console.log("user joined!");
-                            updatePlayers(users);
-                            resolve(false);
-                        } else {
-                            console.log("no users joined yet!");
-                            // este return false hace que poll() vuelva a ejecutarse
-                            resolve(true);
-                        }
+
+    if(teamName == ""){
+        $("#spanCreate").text("El valor está vacio. Rellena el campo.");
+    }else{
+        $("#spanCreate").text("");
+        $("#spanJoin").text("");
+        let csrf = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        $.ajax({
+            url: "api/createGame/"+val+"/"+teamName,
+            method: "GET",
+            crossDomain : true,
+            accepts: "application/json",
+            dataType: 'json',
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json',
+                "X-CSRF-TOKEN": csrf
+            },
+            success: function(res){
+                $("#game-id").val(res['game_id']);
+                $("#game-id").attr("readonly", "true");
+                $("#joinGame").addClass("pointer-events-none");
+                $("#joinGame").addClass("opacity-60");
+                $("#joinGame").attr("tabindex", -1);
+                poll(function () {
+                    return new Promise(function (resolve, reject) {
+                        getUsers().then((users) => {
+                            if (users && users.length > 1) {
+                                console.log("user joined!");
+                                updatePlayers(users);
+                                resolve(false);
+                            } else {
+                                console.log("no users joined yet!");
+                                // este return false hace que poll() vuelva a ejecutarse
+                                resolve(true);
+                            }
+                        });
                     });
-                });
-            }, 3000);
-        }
-    });
+                }, 3000);
+            }
+        });
+    }
 }
 
 function getUsers() {
