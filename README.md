@@ -11,7 +11,7 @@ Desde el directorio donde quieras alojar el proyecto, ejecuta los siguientes com
 - composer install
 - php artisan key:generate
 - php artisan migrate
-- php artisan createdata (para añadir registros de prueba en la base de datos)
+- php artisan createdata (para añadir las pantallas y otros registros en la base de datos)
 - php artisan serve
 ```
 Seguidamente podrás dirigirte a tu navegador y en la barra de direcciones escribir "localhost:8000".
